@@ -39,7 +39,7 @@ jobs:
       run: sleep 30s
       shell: bash
     - run: |
-           npx docs-to-pdf --initialDocURLs="http://localhost:3000/docs/" --contentSelector="article" --paginationSelector="a.pagination-nav__link.pagination-nav__link--next" --excludeSelectors=".margin-vert--xl a,[class^='tocCollapsible'],.breadcrumbs,.theme-edit-this-page" --coverImage="https://www.oramainteractive.com/Pixelorama-Docs/img/favicon.ico" --coverTitle="Pixelorama Documentation" --pdfMargin="10,20,30,40" --paperFormat="A4"
+           npx docs-to-pdf --initialDocURLs="http://localhost:3000/docs/intro" --contentSelector="article" --paginationSelector="a.pagination-nav__link.pagination-nav__link--next" --excludeSelectors=".margin-vert--xl a,[class^='tocCollapsible'],.breadcrumbs,.theme-edit-this-page" --coverImage="https://www.oramainteractive.com/Pixelorama-Docs/img/favicon.ico" --coverTitle="Pixelorama Documentation" --pdfMargin="10,20,30,40" --paperFormat="A4"
     
     - name: Rename File
       run: mv docs-to-pdf.pdf Pixelorama-Docs.pdf
@@ -49,5 +49,5 @@ jobs:
       with:
         name: Pixelorama Documentation
         # The output filename can be specified with --output option
-        path: Pixelorama-Docs.pdf
+        path: website/Pixelorama-Docs.pdf
         if-no-files-found: error
