@@ -56,7 +56,7 @@ jobs:
     - name: Create PDF
       working-directory: "./website"
       run: |
-           npx docs-to-pdf --initialDocURLs="http://0.0.0.0:3000/docs/developers/build-starrocks/Build_in_docker/" --contentSelector="article" --paginationSelector="a.pagination-nav__link.pagination-nav__link--next" --excludeSelectors=".margin-vert--xl a,[class^='tocCollapsible'],.breadcrumbs,.theme-edit-this-page" --coverImage="https://docusaurus.io/img/docusaurus.ico" --coverTitle="Docusaurus Example Documentation" --pdfMargin="10,20,30,40" --paperFormat="A4"
+           npx docs-to-pdf --initialDocURLs="http://0.0.0.0:3000/docs/introduction/StarRocks_intro/" --contentSelector="article" --paginationSelector="a.pagination-nav__link.pagination-nav__link--next" --excludeSelectors=".margin-vert--xl a,[class^='tocCollapsible'],.breadcrumbs,.theme-edit-this-page" --coverImage="https://docusaurus.io/img/docusaurus.ico" --coverTitle="Docusaurus Example Documentation" --pdfMargin="10,20,30,40" --paperFormat="A4" --excludePaths="/sql-reference/"
     
     - name: Upload results
       uses: actions/upload-artifact@v4
