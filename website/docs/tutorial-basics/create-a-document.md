@@ -20,7 +20,7 @@ description: "存算一体"
 ### Docker
 
 - [安装 Docker](https://docs.docker.com/engine/install/)。
-- 为 Docker 分配 4 GB RAM。
+- 为 Docker 分配 5 GB RAM。
 - 为 Docker 分配 10 GB 的空闲磁盘空间。
 
 ### SQL 客户端
