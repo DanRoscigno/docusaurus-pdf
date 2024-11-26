@@ -6,6 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      NODE_OPTIONS: --max-old-space-size=8192
       PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
       CI: 'true'
     steps:
@@ -41,7 +42,6 @@ jobs:
 
     - name: Install and run Docusaurus
       env:
-        NODE_OPTIONS: --max-old-space-size=8192
         DISABLE_VERSIONING: true
       working-directory: "./website"
       run: |
