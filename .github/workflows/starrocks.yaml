@@ -1,4 +1,4 @@
-name: Generate PDF
+name: StarRocks PDF
 
 on: workflow_dispatch
 
@@ -8,9 +8,6 @@ jobs:
     env:
       PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: 'true'
       CI: 'true'
-    defaults:
-      run:
-        working-directory: "./website"
     steps:
     - uses: actions/checkout@v4
       with:
@@ -46,6 +43,7 @@ jobs:
       env:
         NODE_OPTIONS: --max-old-space-size=8192
         DISABLE_VERSIONING: true
+      working-directory: "./website"
       run: |
            npm install
            npm run docusaurus build --locale zh
@@ -55,7 +53,9 @@ jobs:
       run: sleep 30s
       shell: bash
 
-    - run: |
+    - name: Create PDF
+      working-directory: "./website"
+      run: |
            npx docs-to-pdf --initialDocURLs="http://0.0.0.0:3000/docs/introduction/StarRocks_intro/" --contentSelector="article" --paginationSelector="a.pagination-nav__link.pagination-nav__link--next" --excludeSelectors=".margin-vert--xl a,[class^='tocCollapsible'],.breadcrumbs,.theme-edit-this-page" --coverImage="https://docusaurus.io/img/docusaurus.ico" --coverTitle="Docusaurus Example Documentation" --pdfMargin="10,20,30,40" --paperFormat="A4"
     
     - name: Upload results
