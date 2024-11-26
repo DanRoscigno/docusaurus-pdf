@@ -45,9 +45,9 @@ jobs:
         DISABLE_VERSIONING: true
       working-directory: "./website"
       run: |
-           npm install
-           npm run docusaurus build --locale zh
-           npm run docusaurus serve &
+           yarn install
+           yarn build --locale zh
+           yarn serve &
 
     - name: Sleep for 30 seconds
       run: sleep 30s
